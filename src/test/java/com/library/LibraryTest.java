@@ -72,19 +72,17 @@ class LibraryTest {
         testService.showMap();
         Long userIdForTest = 2L;
         Long bookIdForTest = 3L;
+        String dataForCheck = userIdForTest + "" + bookIdForTest;
         testService.takeBook(userIdForTest, bookIdForTest);
-        var testing = testService.getLibraryMap().entrySet()
+        var testedDataFromLibrary = String.valueOf(testService.getLibraryMap().entrySet()
                 .stream()
                 .filter(map -> map.getKey().getUserId().equals(2L))
                 .findFirst().map(map -> {
                     var key = map.getKey().getUserId();
                     var value = map.getValue();
                     return key + "" + value.stream().findFirst().get().getBookId();
-                });
-        System.out.println(testing.get());
-        //Assertions.assertEquals(mapForTested, testService.getLibraryMap().get(userList.get(2)));
-
-
+                }));
+        Assertions.assertEquals(dataForCheck, testedDataFromLibrary);
     }
 
     @DisplayName("Single test successful")
