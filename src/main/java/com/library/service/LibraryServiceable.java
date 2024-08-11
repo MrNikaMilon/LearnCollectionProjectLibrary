@@ -8,6 +8,6 @@ public interface LibraryServiceable {
     List<Book> getAllBooks();
     List<Book> getAvailableBook();
     List<Book> getUserBook(Long userId);
-    void takeBook(Long userId, Long bookId);
+    void takeBook(Long userId, Long bookId) throws Exception;
     void returnBook(Long userId, Long bookId);
 }
