@@ -12,6 +12,6 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book name: " + title;
+        return "Book name: " + this.title;
     }
 }
